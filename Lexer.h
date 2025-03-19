@@ -38,6 +38,10 @@ class Lexer{
                 return currentToken;
             }
 
+            while(isspace(this->text[this->pos])){
+                this->pos++;
+            }
+
             switch (this->text[this->pos])
             {
             case '+':
@@ -62,6 +66,7 @@ class Lexer{
                 break;
             };
 
+            this->pos++;
             currentToken = token;
             return currentToken;
         }
