@@ -19,15 +19,9 @@ class Token{
 
     public:
 
-        Token (){
-            this->value = "";
-            this->type = NONE;
-        }
+        Token (): value(""), type(NONE) { }
 
-        Token(std::variant<int, std::string> value, TokenType type){
-            this->value = value;
-            this->type = type;
-        }
+        Token(std::variant<int, std::string> value, TokenType type) : value(value), type(type) { }
 
         std::variant<int, std::string> getValue(){
             return this->value;

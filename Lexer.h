@@ -21,11 +21,7 @@ class Lexer{
 
     public:
 
-        Lexer(std::string text){
-            this->text = text;
-            this->pos = 0;
-            this->textLength = text.length();
-        }
+        Lexer(std::string text): text(text), pos(0), textLength(text.length()) {}
 
         Token getNextToken(){
 
