@@ -7,7 +7,7 @@ class Lexer{
     std::string text;
     int pos, textLength;
 
-    std::string intLexeme(){
+    int intLexeme(){
             
         std::string lexeme = "";
 
@@ -16,7 +16,7 @@ class Lexer{
             pos++;
         }
 
-        return lexeme;
+        return std::stoi(lexeme);
     }
 
     public:
@@ -66,5 +66,4 @@ class Lexer{
             currentToken = token;
             return currentToken;
         }
-
 };
