@@ -27,7 +27,7 @@ class Lexer{
 
             Token token;
 
-            if (this->pos >  textLength){
+            if (this->pos >=  textLength){
                 token.setType(EOL);
                 token.setValue("");
                 currentToken = token;
@@ -43,18 +43,22 @@ class Lexer{
             case '+':
                 token.setValue("+");
                 token.setType(PLUS);
+                this->pos++;
                 break;
             case '-':
                 token.setValue("-");
                 token.setType(SUB);
+                this->pos++;
                 break;
             case '*':
                 token.setValue("*");
                 token.setType(MUL);
+                this->pos++;
                 break;
             case '/':
                 token.setValue("/");
                 token.setType(DIV);
+                this->pos++;
                 break;
             default:
                 token.setValue(intLexeme());
@@ -62,7 +66,6 @@ class Lexer{
                 break;
             };
 
-            this->pos++;
             currentToken = token;
             return currentToken;
         }
