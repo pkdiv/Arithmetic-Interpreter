@@ -1,5 +1,5 @@
-# include<iostream>
-#include <string>
+# include <iostream>
+# include <string>
 # include "Interpreter.h"
 
 int main(){
@@ -10,7 +10,8 @@ int main(){
     std::getline(std::cin >> std::ws, input);
 
     while(input != "exit"){
-        Interpreter interpreter(input);
+        Lexer lexer(input);
+        Interpreter interpreter(lexer);
         std::cout << interpreter.eval() << std::endl;
         std::cout << "calc>" ;
         std::getline(std::cin >> std::ws, input);
