@@ -60,10 +60,19 @@ class Lexer{
                 token.setType(DIV);
                 this->pos++;
                 break;
+            case '(':
+                token.setValue("(");
+                token.setType(LPAREN);
+                this->pos++;
+                break;
+            case ')':
+                token.setValue(")");
+                token.setType(RPAREN);
+                this->pos++;
+                break;
             default:
                 token.setValue(intLexeme());
                 token.setType(INT);
-                break;
             };
 
             currentToken = token;
