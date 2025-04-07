@@ -8,6 +8,8 @@ enum TokenType {
     SUB,
     MUL,
     DIV,
+    LPAREN,
+    RPAREN,
     NONE,
     EOL
 };
@@ -54,6 +56,8 @@ class Token{
                 case TokenType::SUB:  os << "MINUS";   break;
                 case TokenType::MUL:  os << "MUL";     break;
                 case TokenType::DIV:  os << "DIV";     break;
+                case TokenType::LPAREN:  os << "LPAREN";     break;
+                case TokenType::RPAREN:  os << "RPAREN";     break;
                 case TokenType::EOL:  os << "EOL";     break;
                 case TokenType::NONE: os << "NONE";    break;
                 default: os << "UNKNOWN"; break;
