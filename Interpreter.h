@@ -1,4 +1,4 @@
-# include "Lexer.h"
+#include "Lexer.h"
 
 class Interpreter{
 
@@ -11,7 +11,6 @@ class Interpreter{
             exit(0);
         }
 
-
         void eat(TokenType type){
 
             if(token.getType() != type){
@@ -21,12 +20,10 @@ class Interpreter{
             return;
         }
 
-
         int expr(){
             int result = this->term();
             
-
-            while (token.getType() != EOL)
+            while (token.getType() != EOL && token.getType() != RPAREN)
             {
                 if(token.getType() == PLUS){
                     this->eat(PLUS);
@@ -63,14 +60,27 @@ class Interpreter{
                 token = lexer.getNextToken();
 
             } ;
-        
+
             return result;
         }
 
         int factor(){
+            
+            int result;
+
             token = lexer.getNextToken();
-            int result = std::get<int>(token.getValue());
-            this->eat(INT);
+
+            if(token.getType() == INT){
+                result = std::get<int>(token.getValue());
+                this->eat(INT);
+            }else if(token.getType() == LPAREN){
+                this->eat(LPAREN);
+                result = this->expr();
+                this->eat(RPAREN);
+            }else{
+                //Else block is not required
+            }
+
             return result;
         }   
 
