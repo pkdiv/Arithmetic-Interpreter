@@ -6,14 +6,14 @@ int main(){
 
     std::string input;
 
-    std::cout << "calc>" ;
+    std::cout << "arthin>" ;
     std::getline(std::cin >> std::ws, input);
 
     while(input != "exit"){
         Lexer lexer(input);
         Interpreter interpreter(lexer);
         std::cout << interpreter.eval() << std::endl;
-        std::cout << "calc>" ;
+        std::cout << "arthin>" ;
         std::getline(std::cin >> std::ws, input);
     };
 
